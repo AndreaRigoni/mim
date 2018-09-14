@@ -23,5 +23,5 @@ clean: clean-deps
 	@ $(info not implemented yet)
 
 start: NPM_ARGS=dev
-start: npm-run
+start: deps npm-run
 
