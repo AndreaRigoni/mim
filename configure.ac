@@ -53,17 +53,7 @@ AX_TARGET_SELFHELP
 # //  DOCKER BUILD /////////////////////////////////////////////////////////// #
 # //////////////////////////////////////////////////////////////////////////// #
 
-AS_VAR_IF([CONFIG_ENABLE_DOCKER_BUILD],[y],[
-           AS_VAR_SET_IF([CONFIG_DOCKER_CONTAINER], 
-              [AS_VAR_SET([DOCKER_CONTAINER],[${CONFIG_DOCKER_CONTAINER}])] )
-           AS_VAR_SET_IF([CONFIG_DOCKER_IMAGE], 
-              [AS_VAR_SET([DOCKER_IMAGE],[${CONFIG_DOCKER_IMAGE}])] )
-           AS_VAR_SET_IF([CONFIG_DOCKER_URL], 
-              [AS_VAR_SET([DOCKER_URL],[${CONFIG_DOCKER_URL}])])
-          ])
-
-AX_KCONFIG_VAR([DOCKER_SHARES])
-AC_SUBST([DOCKER_SHARES])
+m4_sinclude(conf/kscripts/docker.ac)
 AX_DOCKER_BUILD
 
 # //////////////////////////////////////////////////////////////////////////// #
@@ -128,11 +118,19 @@ m4_sinclude(conf/kscripts/ext_llvm.ac)
 ## EXT_CCSTICKERS ##
 m4_sinclude(conf/kscripts/ext_ccStickers.ac)
 
+## EXT_NODEJS_NODE ##
+m4_sinclude(conf/kscripts/ext_nodejs_node.ac)
+
+## EXT_MDSPLUS ##
+m4_sinclude(conf/kscripts/ext_mdsplus.ac)
+
 ## EXT ##
 AX_KCONFIG_MODULES([EXT],
 		  [libjit],[libjit external sources],
 		  [llvm],[llvm external sources],
-		  [ccStickers],[ccStickers external sources]
+		  [ccStickers],[ccStickers external sources],
+		  [nodejs-node],[nodejs node external sources],
+		  [mdsplus],[mdsplus external sources]
 		  )
 AC_SUBST([EXT_MODULES])
 
@@ -205,7 +203,9 @@ AC_CONFIG_FILES(
 				 src/sh_template/Makefile
 dnl				 src/libjit_examples/Makefile
 				 src/parse_examples/Makefile
-				 src/nodejs/Makefile
+				 src/nodejs/Makefile				 
+				 src/project_variables/Makefile
+				 src/mds_example/Makefile
 				 doc/Makefile
 				 doc/wiki/Makefile
 				 ext/Makefile
