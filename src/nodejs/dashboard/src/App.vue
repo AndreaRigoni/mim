@@ -1,76 +1,67 @@
-<template>  
-  <div id="app">
+<template>
+  <v-app>
+    <v-navigation-drawer
+      persistent
+      :mini-variant="miniVariant"
+      :clipped="clipped"
+      v-model="drawer"
+      enable-resize-watcher
+      fixed
+      app
+    >
+      <v-list>
+        <v-list-tile value="true" v-for="(item, i) in items" :key="i" >
+          <v-list-tile-action> <v-icon v-html="item.icon"></v-icon> </v-list-tile-action>
+          <v-list-tile-content> <v-list-tile-title v-text="item.title"></v-list-tile-title> </v-list-tile-content>
+        </v-list-tile>
+        <v-list-item>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar
+      app
+      :clipped-left="clipped"
+    >
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-btn icon @click.stop="miniVariant = !miniVariant">
+        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
+      </v-btn>
+      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <v-spacer></v-spacer>
+    </v-toolbar>
 
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    
-    <br>
-    <div id="Div1" style=" overflow:scroll; "></div>
-  </div>
+    <v-content>
+      <!-- <HelloWorld/> -->
+      <Canvas/>
+    </v-content>
+    <v-footer :fixed="fixed" app>
+      <span>&copy; Mildstone Mim 2018</span>
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
-
-import SVG from 'svg.js'
-import draggable from 'svg.draggable.js'
-import panzoom from 'svg.panzoom.js'
-
-
+import Canvas from './components/Canvas'
+import Settings from './components/Settings'
 
 export default {
-  name: 'app',
-  mounted() {
-    var draw = SVG('Div1').size(2600,800).panZoom();    
-    var rect1 = draw.rect(100,100).attr({ x: 100, y: 100, fill: '#aaa' });
-    var rect2 = draw.rect(100,100).attr({ x: 0, y: 0, fill: '#bbb' });
-    rect1.draggable();
-    rect2.draggable();
-    
-    var svg = rect1.svg();     
-    var nested = draw.nested()
-    // var rect = nested.rect(90, 90).attr({ x: 0, y: 0, fill: '#999'})
-    nested.svg('<path class="arrow" d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" transform=" translate(15,0)">').attr({fill: '#22a'});
-    nested.draggable();
-    
-    // arrow.draggable();
- 
-    console.log(svg);
-     
+  name: 'App',
+  components: {
+    Canvas
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      progressValue: 50
+      clipped: false,
+      drawer: true,
+      fixed: false,
+      items: [
+        { icon: 'bubble_chart', title: 'Mim pages' }
+      ],
+      miniVariant: false,
+      right: true,
+      rightDrawer: false,
+      title: 'Mim dashboard'
     }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-</style>

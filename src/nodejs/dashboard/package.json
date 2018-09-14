@@ -12,10 +12,16 @@
   "dependencies": {
     "@vue/ui": "^0.5.5",
     "redis": "^2.8.0",
+    "styler": "0.0.14",
+    "stylerjs": "^1.4.0",
     "svg.draggable.js": "^2.2.1",
     "svg.js": "^2.6.6",
     "svg.panzoom.js": "^1.2.0",
-    "vue": "^2.5.11"
+    "vue": "^2.5.11",
+    "vue-router": "^3.0.1",
+    "vue2-hammer": "^2.0.1",
+    "vuetify": "^1.2.3",
+    "vuex": "^3.0.1"
   },
   "browserslist": [
     "> 1%",

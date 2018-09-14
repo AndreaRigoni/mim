@@ -25,3 +25,7 @@ clean: clean-deps
 start: NPM_ARGS=dev
 start: deps npm-run
 
+
+VS_CODE_PROJECT_PATH = ./dashboard
+
+
