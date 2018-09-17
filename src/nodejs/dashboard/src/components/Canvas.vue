@@ -1,9 +1,7 @@
 <template>  
   <div id="canvas">
-
-    <img src="../assets/logo.png">
-    <h1>{{ msg }}</h1>
-    
+    <!-- <img src="../assets/logo.png"> -->
+    <h2>{{ msg }}</h2>
     <br>
     <div id="Div1" style=" overflow:scroll; "></div>
   </div>

@@ -15,6 +15,8 @@ import _Canvas from './components/Canvas.vue'
 import _Settings from './components/Settings.vue' 
 
 
+
+
 Vue.use(Vuetify)
 Vue.use(VueUi)
 Vue.use(VueHammer);
@@ -63,6 +65,8 @@ const router = new VueRouter({
 
 
 new Vue({
+  store,
+  router: router,
   el: '#app',
   render: h => h(App)
 })
