@@ -7,3 +7,6 @@
 [submodule "conf/autoconf-archive"]
 	path = conf/autoconf-archive
 	url = https://github.com/andrearigoni/autoconf-archive
+[submodule "src/nodejs/http-ws"]
+	path = src/nodejs/http-ws
+	url = https://github.com/andrearigoni/sandbox-http-ws_5znln5n1px.git

@@ -55,5 +55,6 @@ reconfigure: ##@miscellaneous re-run configure with last passed arguments
 	$(abs_top_srcdir)/configure $(shell $(abs_top_builddir)/config.status --config);
 
 
-
+bash: ##@@miscellaneous run bash inside make env
+	@bash
 

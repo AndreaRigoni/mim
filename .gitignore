@@ -2,10 +2,11 @@ Makefile.in
 /aclocal.m4
 /autom4te.cache
 /conf/depcomp
+/conf/ide
 /config.h.in
 /config.h.in~
 /configure
 
-/build/download
-/build/conf/node_modules
-/build
+/downloads
+/.
+/.

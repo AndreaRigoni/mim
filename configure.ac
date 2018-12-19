@@ -87,6 +87,13 @@ AC_CHECK_PROGS([PERL],[perl])
 ## LIBTOOL
 LT_INIT()
 
+
+# AVAHI PKG
+PKG_CHECK_MODULES([AVAHI_CLIENT],[avahi-client])
+AC_SUBST([AVAHI_CLIENT_CFLAGS])
+AC_SUBST([AVAHI_CLIENT_LIBS])
+
+
 ## /////////////////////////////////////////////////////////////////////////////
 ## //  KSCRIPTS  ///////////////////////////////////////////////////////////////
 ## /////////////////////////////////////////////////////////////////////////////
@@ -195,7 +202,7 @@ AS_ECHO()
 
 
 
-AC_CONFIG_FILES( 
+AC_CONFIG_FILES(
                  Makefile
 				 .gitignore
 				 src/Makefile
@@ -203,8 +210,10 @@ AC_CONFIG_FILES(
 				 src/sh_template/Makefile
 dnl				 src/libjit_examples/Makefile
 				 src/parse_examples/Makefile
-				 src/nodejs/Makefile				 
+				 src/nodejs/Makefile
+				 src/nodejs/http-ws/Makefile
 				 src/project_variables/Makefile
+				 src/avahi/Makefile
 				 src/mds_example/Makefile
 				 doc/Makefile
 				 doc/wiki/Makefile
