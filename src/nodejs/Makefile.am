@@ -29,3 +29,24 @@ start: deps npm-run
 VS_CODE_PROJECT_PATH = ./dashboard
 
 
+
+## ////////////////////////////////////////////////////////////////////////////////
+## //  SOMATA  ////////////////////////////////////////////////////////////////////
+## ////////////////////////////////////////////////////////////////////////////////
+
+DOWNLOADS     = somata-registry
+NODE_MODULES += somata-registry
+somata-registry: ##@somata download somata-registry
+somata_registry_URL = https://github.com/somata/somata-registry.git
+
+# VS_CODE_PROJECT_PATH += ./somata-registry
+
+
+
+DOWNLOADS    += somata-node
+NODE_MODULES += somata-node
+somata-node:
+somata_node_URL = https://github.com/somata/somata-node.git
+
+# VS_CODE_PROJECT_PATH += ./somata-node
+

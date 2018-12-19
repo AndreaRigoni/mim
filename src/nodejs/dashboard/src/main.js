@@ -3,18 +3,19 @@ import VueUi from '@vue/ui'
 import '@vue/ui/dist/vue-ui.css'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+
 import Vuex from "vuex";
 import styler from "stylerjs";
-
 import VueRouter from "vue-router";
-import { VueHammer } from "vue2-hammer";
 
+import { VueHammer } from "vue2-hammer";
+import VueSession from 'vue-session';
 
 import App from './App.vue' 
+
 import _Canvas from './components/Canvas.vue' 
 import _Settings from './components/Settings.vue' 
-
-
+import _MimInstanceTree from './components/MimInstanceTree'
 
 
 Vue.use(Vuetify)
@@ -23,6 +24,7 @@ Vue.use(VueHammer);
 Vue.use(Vuetify);
 Vue.use(VueRouter);
 Vue.use(Vuex);
+Vue.use(VueSession);
 
 const store = new Vuex.Store({
   state: {
@@ -56,6 +58,7 @@ const store = new Vuex.Store({
 const routes = [
   { path: "/", redirect: "/canvas" },
   { path: "/canvas", components: { default: _Canvas }, name: "Canvas" },
+  { path: "/instances", components: { default: _MimInstanceTree }, name: "Instances" },
   { path: "/settings", components: { default: _Settings }, name: "Settings" }
 ];
 

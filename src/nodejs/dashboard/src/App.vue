@@ -3,7 +3,7 @@
     
     <!--  DRAWER   -->
     
-    <v-navigation-drawer
+    <!-- <v-navigation-drawer
       persistent
       :mini-variant="miniVariant"
       :clipped="clipped"
@@ -26,9 +26,9 @@
         </v-list-tile>
         </template>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
 
-
+    <Drawer/>
     <!--  TOOLBAR   -->
     <v-toolbar
       app
@@ -57,26 +57,22 @@
 
 
 <script>
-import Canvas from './components/Canvas'
-import Settings from './components/Settings'
+// import Canvas from './components/Canvas'
+// import Settings from './components/Settings'
+// import MimInstanceTree from './components/MimInstanceTree'
+import Drawer from './components/Drawer'
 
 export default {
   name: 'App',
   components: {
-    Canvas
+    Drawer
   },
   data () {
     return {
       clipped: false,
       drawer: true,
       fixed: false,
-      items: [
-        { icon: 'dashboard', text: 'Canvas' , link: '#/canvas'},
-        { icon: 'settings', text: 'Settings' , link: '#/settings'}
-      ],
       miniVariant: false,
-      right: true,
-      rightDrawer: false,
       title: 'Mim dashboard'
     }
   }
